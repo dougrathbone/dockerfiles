@@ -5,13 +5,13 @@
 #	in a container with all dependencies installed.
 #	Tested on Windows 10.
 # USAGE:
-#	# Download visual studio Dockerfile
+#	# Download git Dockerfile
 #	wget https://raw.githubusercontent.com/dougrathbone/dockerfiles/git/Dockerfile
 #
 #	# Build visual studio image
 #	docker build -t git .
 #
-# # Run docker image containing visual studio and msbuild
+# # Run docker image containing Git for Windows
 #	docker run git
 #
 
@@ -26,7 +26,7 @@ RUN Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Ne
 RUN & "choco install git -y"
 
 # Add Git to PATH
-RUN $Env:Path +='C:\\Program Files\\Git\\cmd'
+RUN $Env:Path += 'C:\\Program Files\\Git\\cmd'
 
 # Print the Git Version installed
 RUN & "git version"
